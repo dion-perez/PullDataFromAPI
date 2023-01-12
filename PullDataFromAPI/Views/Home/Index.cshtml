@@ -1,0 +1,43 @@
+﻿@model DataViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body>
+
+<div class="row">
+    <div class="column">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Fav Colour</th>
+                <th>Email</th>
+            </tr>
+            @foreach (var candidate in Model.Candidates)
+            {
+                <tr>
+                    <td>@(candidate.firstName + " " + candidate.lastName)</td>
+                    <td>@(candidate.dob.ToShortDateString())</td>
+                    <td>@candidate.favouriteColour</td>
+                    <td>@candidate.email</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="column">
+        <table>
+            <tr>
+                <th>Organised Colours</th>
+            </tr>
+            @foreach (var colour in Model.Colours)
+            {
+                <tr>
+                    <td>@colour</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+</body>
